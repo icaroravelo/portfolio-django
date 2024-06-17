@@ -16,7 +16,7 @@ urlpatterns = [
     path('teste/', testPageView, name='teste'),
 
     path('admin/', admin.site.urls),
-    path('', include('example.urls')),
+    path('example/', include('example.urls')),
 
     path("__reload__/", include("django_browser_reload.urls")),
 ]
