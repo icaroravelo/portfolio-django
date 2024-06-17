@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     
     # My Apps
     'example',
+    'about',
+    'portfolio',
+    'school',
+    'contact',
+    'blog',
 
     # Third Party Apps
     'django_browser_reload',
