@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="flex flex-col items-center pt-10 text-blue-800">
+    <section class="flex flex-col items-center pt-10 text-blue-800">
         <h1 class="text-3xl font-bold">Sobre Mim</h1>
 
-        {% for info in infos %}
-            <p class="text-gray-500">{{ info.name }}</p>
-        {% endfor %}
-    </div>
+        <div class="pt-10">
+            {% for info in infos %}
+                <img 
+                    src="{{ info.avatar2.url }}" 
+                    alt="{{ info.name }}"
+                    class="rounded-lg w-96"
+                >
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

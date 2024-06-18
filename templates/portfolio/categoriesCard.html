@@ -1,0 +1,16 @@
+{% for category in categories %}
+    <div class="card w-96 bg-base-100 shadow-xl border border-blue-900">
+        <figure class="px-10 pt-10">
+            <img src="{{ category.thumbnail.url }}" alt="{{ category.name }}" class="rounded-xl" />
+        </figure>
+        <div class="card-body items-center text-center">
+            <h2 class="card-title">{{ category.name }}</h2>
+            <p>{{ category.short_description }}</p>
+            <div class="card-actions">
+                <button class="btn btn-primary">
+                    <a href="{% url 'portfolio' %}">Ver mais</a>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,28 @@
+{% for school in schools %}
+    <div class="card w-96 bg-base-100 shadow-xl border border-blue-900">
+        <figure class="px-10 pt-10">
+            <img src="{{ school.logo.url }}" alt="{{ school.name }}" class="rounded-xl" />
+        </figure>
+        <div class="card-body items-center text-center">
+            <h2 class="card-title">{{ school.name }}</h2>
+            <p class="text-gray-300">{{ school.short_description }}</p>
+
+            <div class="flex flex-row space-x-4 text-sm text-gray-500">
+                <div>
+                    <span>Início: </span>
+                    <span>{{ school.start_date_transform }}</span>
+                </div>
+                <span> - </span>
+                <div>
+                    {{ school.if_finished }}
+                </div>
+            </div>
+
+            {% if school.certificate %}
+                <a href="{{ school.certificate.url }}" target="_blank">
+                    <button class="btn btn-primary mt-4">Certificado</button>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
