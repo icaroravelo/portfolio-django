@@ -14,8 +14,7 @@ Este é o repositório do meu portfólio pessoal desenvolvido com Django e estil
 - Python 
 - Django 
 - TailwindCSS
+- DaisyUI (Componentes)
 - Django Browser Reload
-- Railway (Backend)
 - Neon (Banco de Dados) 
 - Vercel (Frontend)
-- Docker 
