@@ -1,28 +1,42 @@
 {% for school in schools %}
-    <div class="card w-96 bg-base-100 shadow-xl border border-blue-900">
-        <figure class="px-10 pt-10">
-            <img src="{{ school.logo.url }}" alt="{{ school.name }}" class="rounded-xl" />
-        </figure>
-        <div class="card-body items-center text-center">
-            <h2 class="card-title">{{ school.name }}</h2>
-            <p class="text-gray-300">{{ school.short_description }}</p>
+    <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="p-4">
+            <h2 
+                class="card-title flex items-center text-center uppercase h-12 tracking-widest 
+                    justify-center text-xl text-zinc-300 mt-4 mb-6"
+                >
+                {{ school.school_name }}
+            </h2>  
+            <figure class="mt-2">
+                <img 
+                    src="{{ school.logo.url }}" 
+                    alt="{{ school.name }}" 
+                    class="rounded-xl"
+                    style="width: 300px; height: 228px;" 
+                />
+            </figure>
+            <div class="card-body items-center text-center">
+                <p class="text-gray-300 text-base uppercase tracking-wide h-20 leading-relaxed">{{ school.short_description }}</p>
 
-            <div class="flex flex-row space-x-4 text-sm text-gray-500">
-                <div>
-                    <span>Início: </span>
-                    <span>{{ school.start_date_transform }}</span>
+                <div class="flex flex-row space-x-4 text-md font-normal text-gray-400">
+                    <div>
+                        <span>Início: </span>
+                        <span>{{ school.start_date_transform }}</span>
+                    </div>
+                    <span> - </span>
+                    <div>
+                        {{ school.if_finished }}
+                    </div>
                 </div>
-                <span> - </span>
-                <div>
-                    {{ school.if_finished }}
-                </div>
+
+                {% if school.certificate %}
+                    <a href="{{ school.certificate.url }}" target="_blank">
+                        <button class="btn bg-cyan-700 uppercase tracking-wider text-gray-300 hover:bg-green-700 transition duration-300 mt-4">Certificado</button>
+                    </a>
+                {% endif %}
             </div>
-
-            {% if school.certificate %}
-                <a href="{{ school.certificate.url }}" target="_blank">
-                    <button class="btn bg-blue-900 text-gray-300 hover:bg-green-700 transition mt-4">Certificado</button>
-                </a>
-            {% endif %}
+            
         </div>
+        
     </div>
 {% endfor %}

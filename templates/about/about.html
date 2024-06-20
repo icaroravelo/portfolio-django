@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section class="flex flex-col items-center pt-10 text-blue-800">
-        <h1 class="text-3xl font-bold">Sobre Mim</h1>
+    <section class="flex flex-col items-center pt-10">
+        <h1 class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">Sobre Mim</h1>
 
         <div class="pt-10">
             {% for info in infos %}
@@ -14,5 +14,12 @@
                 <p>{{ info.description }}</p>
             {% endfor %}
         </div>
+
+        {% for stack in stacks %}
+            <div class="pt-10">
+                <h2 class="text-2xl font-bold">{{ stack.name }}</h2>
+                <p>{{ stack.short_description }}</p>
+            </div>
+        {% endfor %}
     </section>
 {% endblock %}

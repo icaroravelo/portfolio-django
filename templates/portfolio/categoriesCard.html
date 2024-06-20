@@ -1,16 +1,29 @@
 {% for category in categories %}
-    <div class="card w-96 bg-base-100 shadow-xl border border-blue-900">
-        <figure class="px-10 pt-10">
-            <img src="{{ category.thumbnail.url }}" alt="{{ category.name }}" class="rounded-xl" />
-        </figure>
-        <div class="card-body items-center text-center">
-            <h2 class="card-title">{{ category.name }}</h2>
-            <p>{{ category.short_description }}</p>
-            <div class="card-actions">
-                <button class="btn btn-primary">
-                    <a href="{% url 'portfolio' %}">Ver mais</a>
-                </button>
+    <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="p-4">
+            <h2 
+                class="card-title flex items-center text-center uppercase h-12 tracking-widest 
+                    justify-center text-xl text-zinc-300 mt-4 mb-6"
+                >
+                {{ category.name }}
+            </h2>  
+            <figure class="mt-2">
+                <img 
+                    src="{{ category.thumbnail.url }}" 
+                    alt="{{ category.name }}" 
+                    class="rounded-xl"
+                    style="width: 350px; height:350px;" 
+                />
+            </figure>
+            <div class="card-body items-center text-center">
+                <p class="text-gray-300 text-base uppercase tracking-wide h-20 leading-relaxed">{{ category.short_description }}</p>
+
+                    <a href="{{ home.url }}">
+                        <button class="btn bg-cyan-700 uppercase tracking-wider text-gray-300 hover:bg-green-700 transition duration-300 mt-4">Ver mais</button>
+                    </a>
             </div>
+            
         </div>
+        
     </div>
 {% endfor %}

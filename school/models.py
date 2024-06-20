@@ -18,7 +18,7 @@ class School(models.Model):
 
     def if_finished(self):
         if self.finished_at:
-            return 'Concluído em: {}'.format(self.finished_at.strftime('%d/%m/%Y'))
+            return 'Concluído: {}'.format(self.finished_at.strftime('%d/%m/%Y'))
         else:
             return 'Cursando'
 
