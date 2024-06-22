@@ -4,7 +4,7 @@
 {% block content %}
     <section class="flex flex-col items-center pt-10 space-y-8 h-screen w-full">
         {% for info in infos %}
-        <div class="flex-1 flex flex-col items-center">
+        <div class="flex-1 flex flex-col items-center h-screen">
             <div class="flex space-x-3">
                 <img 
                 src="{{ info.avatar1.url }}" 
@@ -19,21 +19,27 @@
             </div>
             <div class="w-96">
                 <p class="text-zinc-300 text-3xl">Sou {{ info.role }}</p>
-                <p class="text-[#06b6d4] text-2xl">
+                <p class="text-[#06b6d4] text-xl">
                     {{ info.bio }}
                 </p>
             </div>
 
-            <div>
+            <div class="flex flex-col items-center justify-center">
                 <h3>Atualmente minhas principais stacks são:</h3>
-                {% for stack in stacks %}
-                    <div class="flex flex-row space-x-2">
+                <div class="flex space-x-2">
+                    {% for stack in stacks %}
                         <p>{{ stack.name }}</p>
-                    </div>
                     {% endfor %}
                 </div>
+            </div>
         </div>
         {% endfor %}
         
+        <div>
+            {% include 'home/workExperience.html' %}
+        </div>
+        <br>
+        <br>
+        <br>
     </section>
 {% endblock %}

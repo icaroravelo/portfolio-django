@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section class="flex flex-col items-center pt-10">
-        <h1 class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">Sobre Mim</h1>
-
-        <div class="pt-10">
-            {% for info in infos %}
-                <img 
-                    src="{{ info.avatar2.url }}" 
-                    alt="{{ info.name }}"
-                    class="rounded-full w-64"
-                >
-                <p>{{ info.description }}</p>
-            {% endfor %}
+    <section class="pt-10">
+        <div class="flex flex-col items-center">
+            <h1 class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">Sobre Mim</h1>
+            <div class="hero min-h-screen">
+                <div class="hero-content flex-col lg:flex-row">
+                    {% for info in infos %}
+                        <img 
+                            src="{{ info.avatar2.url }}" 
+                            alt="{{ info.name }}"
+                            class="rounded-full max-w-sm shadow-2xl"
+                        >
+                        <p class="py-6 max-w-2xl">{{ info.description }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+    
+            {% include 'about/stacksCard.html' %}
         </div>
 
-        {% for stack in stacks %}
-            <div class="pt-10">
-                <h2 class="text-2xl font-bold">{{ stack.name }}</h2>
-                <p>{{ stack.short_description }}</p>
-            </div>
-        {% endfor %}
     </section>
 {% endblock %}

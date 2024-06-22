@@ -5,7 +5,7 @@
                 class="card-title flex items-center text-center uppercase h-12 tracking-widest 
                     justify-center text-xl text-zinc-300 mt-4 mb-6"
                 >
-                {{ category.name }}
+                {{ category.title }}
             </h2>  
             <figure class="mt-2">
                 <img 
@@ -18,8 +18,8 @@
             <div class="card-body items-center text-center">
                 <p class="text-gray-300 text-base uppercase tracking-wide h-20 leading-relaxed">{{ category.short_description }}</p>
 
-                    <a href="{{ home.url }}">
-                        <button class="btn bg-cyan-700 uppercase tracking-wider text-gray-300 hover:bg-green-700 transition duration-300 mt-4">Ver mais</button>
+                    <a href="{% url 'categoria' category.slug %}">
+                        <button class="btn bg-cyan-700 uppercase tracking-wider text-gray-300 hover:bg-green-700 transition duration-300">Ver mais</button>
                     </a>
             </div>
             

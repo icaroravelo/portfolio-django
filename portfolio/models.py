@@ -1,16 +1,29 @@
 from django.db import models
+from django.utils.text import slugify
+import uuid
 from about.models import Stack
 
 # Create your models here.
 class Category(models.Model):
-    name = models.CharField(max_length=250)
-    short_description = models.TextField('', blank=True, null=True)
+    title = models.CharField(max_length=250)
+    subtitle = models.CharField(max_length=250, blank=True, null=True) # To create a slug
+    slug = models.SlugField(blank=True, null=True, unique=True)
+    short_description = models.TextField(blank=True, null=True)
     thumbnail = models.ImageField(upload_to='portfolio/categories/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return self.name
+        return self.title 
 
 class Project(models.Model):
     title = models.CharField(max_length=250)

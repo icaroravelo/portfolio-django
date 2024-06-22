@@ -3,12 +3,22 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import testPageView, homePageView, aboutPageView, categoriesPageView, schoolPageView, contactPageView, blogHomePageView
+from .views import (
+    testPageView, 
+    homePageView, 
+    aboutPageView, 
+    categoriesPageView, 
+    schoolPageView, 
+    contactPageView, 
+    blogHomePageView,
+    individualCategoryPageView
+)
 
 urlpatterns = [
     path('', homePageView, name='home'),
     path('sobre/', aboutPageView, name='sobre'),
     path('portfolio/', categoriesPageView, name='portfolio'),
+    path('categoria/<str:slug>/', individualCategoryPageView, name='categoria'),
     path('educacao/', schoolPageView, name='educacao'),
     path('contato/', contactPageView, name='contato'),
     path('blog/', blogHomePageView, name='blog'),

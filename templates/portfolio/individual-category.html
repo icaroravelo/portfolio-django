@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="min-h-screen flex flex-col items-center pt-10 space-y-12">
+        <h1 class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">
+            {{ category.title }}
+        </h1>
+        {% for project in category.project_set.all %}
+            <div>
+                <p>{{ project.title }}</p>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
