@@ -16,6 +16,13 @@ from os import getenv
 from dotenv import load_dotenv
 from decouple import config
 
+import cloudinary
+import cloudinary.uploader  
+import cloudinary.api
+
+load_dotenv()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -51,6 +58,7 @@ INSTALLED_APPS = [
 
     # Third Party Apps
     'django_browser_reload',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -95,17 +103,22 @@ WSGI_APPLICATION = 'api.wsgi.app'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': getenv('PGDATABASE'),
-    'USER': getenv('PGUSER'),
-    'PASSWORD': getenv('PGPASSWORD'),
-    'HOST': getenv('PGHOST'),
-    'PORT': getenv('PGPORT', 5432),
+    'NAME': config('PGDATABASE'),
+    'USER': config('PGUSER'),
+    'PASSWORD': config('PGPASSWORD'),
+    'HOST': config('PGHOST'),
+    'PORT': config('PGPORT', 5432),
     'OPTIONS': {
         'sslmode': 'require',
         },
     }
 }
 
+cloudinary.config(
+    cloud_name = 'icaro',
+    api_key = '258511943714614',
+    api_secret = 'ELglT6jEb9M8nvh9P6SvYcGntCQ'
+)
 
 CONN_MAX_AGE = config('CONN_MAX_AGE', cast=int, default=30)
 DATABASE_URL = config('DATABASE_URL', cast=str)
@@ -153,8 +166,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)
-STATIC_ROOT = os.path.join('static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join('staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -27,3 +27,16 @@ class Stack(models.Model):
 
     def __str__(self):
         return self.name
+
+class Experience(models.Model):
+    name = models.CharField(max_length=250)
+    role = models.CharField(max_length=250)
+    description = models.TextField('description', blank=True, null=True)
+    city = models.CharField(max_length=250, blank=True, null=True)
+    country = models.CharField(max_length=250, blank=True, null=True)
+    logo = models.ImageField(upload_to='about/avatars', blank=True)
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.name

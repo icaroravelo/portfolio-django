@@ -4,22 +4,28 @@
             Experiência
         </h1>
         <div class="flex">
-            <div class="flex flex-col items-center text-center space-y-2 bg-zinc-800 p-6 rounded-lg">
-                <img 
-                    src="https://media.licdn.com/dms/image/C510BAQHIC2-WTbbVvA/company-logo_200_200/0/1631337799927?e=2147483647&v=beta&t=MYJM0Zn6eS88TqizQLk7b7SvP-4pG_65zUqezztkibc" 
-                    alt="Logo Luft"
-                    class="w-24 h-24 rounded-full"
-                >
-                <h3 class="text-base text-zinc-300">Luft Logistics</h3>
-                <h4 class="text-sm">Líder de Operações</h4>
-                <p>2020 - 2022</p>
-                <div>
-                    <p class="text-sm">
-                        Responsável pelos setores de Insumos e Transfer-Out, <br> 
-                        onde pude desenvolver minhas habilidades de análise de dados.
-                    </p>
+                {% for experience in experiences %}
+                <div class="flex flex-col items-center text-center space-y-2 bg-zinc-800 p-6 rounded-lg">
+                    <div class="flex items-center justify-center space-x-4 text-center">
+                        <img 
+                            src="{{ experience.logo.url}}" 
+                            alt="{{ experience.name }}"
+                            class="w-16 h-16 rounded-full"
+                        >
+                    </div>
+                    <div>
+                        <h3 class="text-base text-zinc-300">{{ experience.name }}</h3>
+                        <h4 class="text-sm">{{ experience.role }}</h4>
+                        <p>2020 - 2022</p>
+                    </div>
+                    <div>
+                        <p class="text-sm">
+                            Responsável pelos setores de Insumos e Transfer-Out, <br> 
+                            onde pude desenvolver minhas habilidades de análise de dados.
+                        </p>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-        </div>
     </section>
 {% endblock content %}

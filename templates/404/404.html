@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="flex flex-col items-center pt-10 space-y-6">
+        <h1 class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">404</h1>
+
+        <p class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">Página não encontrada :/</p>
+        <p class="text-xl">
+            <a href="{% url 'home' %}">
+                Voltar para a página inicial!
+            </a>
+        </p>
+    </main>
+{% endblock content %}

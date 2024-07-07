@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="flex flex-col items-center pt-10 text-blue-800">
-        <h1 class="text-3xl font-bold">Home Blog</h1>
-    </div>
+    <main class="flex flex-col items-center pt-10">
+        <h1 class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">Blog</h1>
+
+        <section>
+            {% include 'blog/lastPosts.html' %}
+        </section>
+    </main>
 {% endblock %}

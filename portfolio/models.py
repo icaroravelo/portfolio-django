@@ -9,7 +9,7 @@ class Category(models.Model):
     subtitle = models.CharField(max_length=250, blank=True, null=True) # To create a slug
     slug = models.SlugField(blank=True, null=True, unique=True)
     short_description = models.TextField(blank=True, null=True)
-    thumbnail = models.ImageField(upload_to='portfolio/categories/', blank=True)
+    thumbnail = models.URLField(max_length=500, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -28,7 +28,7 @@ class Category(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField('', blank=True, null=True)
-    thumbnail = models.ImageField(upload_to='portfolio/projects/', blank=True)
+    thumbnail = models.URLField(max_length=500, blank=True)
     stacks = models.ManyToManyField(Stack, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -50,7 +50,7 @@ class Project(models.Model):
 class Contributor(models.Model):
     name = models.CharField(max_length=250)
     role = models.CharField(max_length=250)
-    thumbnail = models.ImageField(upload_to='portfolio/contributors/', blank=True)
+    thumbnail = models.URLField(max_length=500, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
