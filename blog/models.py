@@ -19,7 +19,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(blank=True, null=True, unique=True)
     content = models.TextField()
-    image = models.ImageField(upload_to='blog/images', blank=True, null=True)
+    image_post = models.URLField(max_length=500, blank=True, default='')
     author = models.CharField(max_length=100)
     categories = models.ManyToManyField("Tag", related_name="posts")
     created_at = models.DateField(auto_now_add=True)

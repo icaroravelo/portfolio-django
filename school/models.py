@@ -5,8 +5,8 @@ class School(models.Model):
     school_name = models.CharField(max_length=250)
     course = models.CharField(max_length=250, blank=True, null=True)
     short_description = models.TextField(blank=True, null=True)
-    logo = models.ImageField(upload_to='school/logos', blank=True)
-    certificate = models.ImageField(upload_to='school/certicates', blank=True)
+    logo = models.URLField(max_length=500, blank=True, default='')
+    certificate = models.URLField(max_length=500, blank=True)
     started_at = models.DateField(blank=True, null=True)
     is_finished = models.BooleanField(default=False) # Status of the course
     finished_at = models.DateField(blank=True, null=True)

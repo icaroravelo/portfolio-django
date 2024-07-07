@@ -27,7 +27,7 @@ def homePageView(request):
     return render(request, 'home/home.html', context)
 
 def errorPageView(request):
-    return redirect(request, '404/404.html')
+    return redirect(request, 'error/error.html')
 
 def aboutPageView(request):
     return aboutPage(request)

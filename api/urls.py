@@ -26,7 +26,7 @@ urlpatterns = [
     path('post/<int:pk>/', blogHomePageView, name='post'), # Route for the post itself
     path('blog/categorias/<tags>/', blogHomePageView, name='post'), # Route for each tag of blog section
 
-    path('404/', errorPageView, name='404'),
+    path('pagina-de-erro/', errorPageView, name='errorPage'),
 
     path('teste/', testPageView, name='teste'),
 
