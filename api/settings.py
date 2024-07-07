@@ -103,21 +103,23 @@ WSGI_APPLICATION = 'api.wsgi.app'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': config('PGDATABASE'),
-    'USER': config('PGUSER'),
-    'PASSWORD': config('PGPASSWORD'),
-    'HOST': config('PGHOST'),
-    'PORT': config('PGPORT', 5432),
+    'NAME': getenv('PGDATABASE'),
+    'USER': getenv('PGUSER'),
+    'PASSWORD': getenv('PGPASSWORD'),
+    'HOST': getenv('PGHOST'),
+    'PORT': getenv('PGPORT', 5432),
     'OPTIONS': {
         'sslmode': 'require',
         },
     }
 }
 
+# Cloudinary Configuration
+
 cloudinary.config(
-    cloud_name = 'icaro',
-    api_key = '258511943714614',
-    api_secret = 'ELglT6jEb9M8nvh9P6SvYcGntCQ'
+    cloud_name = getenv('CLOUDINARY_NAME'),
+    api_key = getenv('CLOUDINARY_KEY'),
+    api_secret = getenv('CLOUDINARY_SECRET'),
 )
 
 CONN_MAX_AGE = config('CONN_MAX_AGE', cast=int, default=30)
