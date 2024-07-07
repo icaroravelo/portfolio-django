@@ -2,38 +2,27 @@
 {% load static %}
 
 {% block content %}
-    <section class="flex flex-col items-center pt-10 space-y-8 w-full">
+    <section class="flex flex-col items-center pt-20 space-y-8 w-full pb-2" id="home">
         {% for info in infos %}
-            <div class="flex flex-col items-center space-y-8">
-                <div class="flex flex-col items-center space-x-3">
-                    <div class="flex items-start justify-center space-x-6">
-                        <img 
-                            src="{{ info.avatar1 }}" 
-                            alt="{{ info.name }}"
-                            class="rounded-full w-40"
-                        >
-                        <div class="flex flex-col">
-                            <h2 class="text-3xl text-gray-300">Olá! Meu nome é 
-                                <span class="text-cyan-400">{{ info.name }}</span>
-                            </h2>
-                            <p class="text-zinc-300 text-xl">Sou {{ info.role }}</p>
-                        </div>
-                    </div>
+            <div class="flex flex-col items-center justify-center text-center space-y-8">
+                <div>
+                    <img 
+                        src="{{ info.avatar1 }}" 
+                        alt="{{ info.name }}"
+                        class="max-w-sm rounded-xl"	
+                    >
+
                 </div>
                 
-                <div class="flex justify-center items-center">
-                    <p class="text-zinc-300 text-xl w-[500px]">
-                        {{ info.bio }}
-                    </p>
+                <div class="flex flex-col text-center items-center justify-center mt-4 ml-10 space-y-4">
+                    <h1 class="text-5xl text-[#DAC5A7] font-light tracking-widest role">{{ info.role }}</h1>
+                    <p class="text-[#DAC5A7] text-base font-light leading-relaxed max-w-xl">{{ info.bio }}</p>
                 </div>
 
-                <div class="flex flex-col items-center justify-center">
-                    <h3>Atualmente minhas principais stacks são:</h3>
-                    <div class="flex space-x-2">
-                        {% for stack in stacks %}
-                            <p>{{ stack.name }}</p>
-                        {% endfor %}
-                    </div>
+                <div class="flex items-center justify-center space-x-3">
+                    {% for stack in stacks %}
+                        <img src="{{ stack.logo }}" alt="{{ stack.name }}" class="w-12 h-12 rounded-sm">
+                    {% endfor %}
                 </div>
             </div>
         {% endfor %}

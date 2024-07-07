@@ -21,11 +21,20 @@
         h2, h3, h4, h5, h6, span, p {
             font-family: 'Roboto', serif;
         }
+
+        .role {
+            font-family: 'Roboto', serif;
+        }
+
+        .header {
+            color: #DAC5A7;
+            font-weight: 700;
+        }
         
     </style>
 
 </head>
-<body class="bg-slate-900 min-h-screen">
+<body class="bg-[#0E0E0E] min-h-screen">
     {% include "nav/navbar.html"  %}
     {% block content %}{% endblock content %}
     {% include "scripts/js.html" %}

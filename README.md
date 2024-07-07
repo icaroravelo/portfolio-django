@@ -18,3 +18,4 @@ Este é o repositório do meu portfólio pessoal desenvolvido com Django e estil
 - Django Browser Reload
 - Neon (Banco de Dados) 
 - Vercel (Frontend)
+- Rav (Comandos de execução)

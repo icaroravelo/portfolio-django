@@ -1,27 +1,28 @@
 {% block content %}
     <section id="work-experience" class="flex flex-col items-center space-y-10">
-        <h1 class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">
+        <h1 class="text-3xl uppercase font-semibold tracking-widest header">
             Experiência
         </h1>
         <div class="flex">
                 {% for experience in experiences %}
-                <div class="flex flex-col items-center text-center space-y-2 bg-zinc-800 p-6 rounded-lg">
-                    <div class="flex items-center justify-center space-x-4 text-center">
+                <div class="flex flex-col items-center text-center space-y-2 bg-[#DAC5A7]/5 p-6 rounded-lg">
+                    <div class="flex items-center justify-center text-center">
                         <img 
-                            src="{{ experience.logo.url}}" 
+                            src="{{ experience.logo }}" 
                             alt="{{ experience.name }}"
-                            class="w-16 h-16 rounded-full"
+                            class="w-24 rounded-full"
                         >
                     </div>
-                    <div>
-                        <h3 class="text-base text-zinc-300">{{ experience.name }}</h3>
+
+                    <div class="space-y-2 text-[#DAC5A7]">
+                        <h3 class="text-base">{{ experience.name }}</h3>
                         <h4 class="text-sm">{{ experience.role }}</h4>
                         <p>2020 - 2022</p>
                     </div>
+
                     <div>
-                        <p class="text-sm">
-                            Responsável pelos setores de Insumos e Transfer-Out, <br> 
-                            onde pude desenvolver minhas habilidades de análise de dados.
+                        <p class="text-sm max-w-sm text-[#DAC5A7]">
+                            {{ experience.description }}
                         </p>
                     </div>
                 </div>
