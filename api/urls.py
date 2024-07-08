@@ -12,7 +12,9 @@ from .views import (
     schoolPageView, 
     contactPageView, 
     blogHomePageView,
-    individualCategoryPageView
+    individualCategoryPageView,
+    useTermsPageView,
+    privacyPolicyPageView,
 )
 
 urlpatterns = [
@@ -25,6 +27,10 @@ urlpatterns = [
     path('blog/', blogHomePageView, name='blog'), # Route for the entire blog
     path('post/<int:pk>/', blogHomePageView, name='post'), # Route for the post itself
     path('blog/categorias/<tags>/', blogHomePageView, name='post'), # Route for each tag of blog section
+    path('404/', errorPageView, name='errorPage'),
+
+    path('termos-de-uso/', useTermsPageView, name='termos-de-uso'),
+    path('politica-de-privacidade/', privacyPolicyPageView, name='politica-de-privacidade'),
 
     path('pagina-de-erro/', errorPageView, name='errorPage'),
 

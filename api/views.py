@@ -46,3 +46,9 @@ def contactPageView(request):
 
 def blogHomePageView(request):
     return blogHomePage(request)
+
+def useTermsPageView(request):
+    return render(request, 'legal/terms-of-use.html')
+
+def privacyPolicyPageView(request):
+    return render(request, 'legal/privacy-policy.html')

@@ -1,24 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <section class="pt-10">
+    <section id="about" class="flex flex-col items-center pt-24 space-y-8 w-full pb-10">
         <div class="flex flex-col items-center">
-            <h1 class="text-3xl text-zinc-300 uppercase font-bold tracking-widest">Sobre Mim</h1>
-            <div class="hero min-h-screen">
-                <div class="hero-content flex-col lg:flex-row">
+            <div id="presentation-section" class="hero">
+                <div class="flex items-center justify-center mt-4 space-x-6">
                     {% for info in infos %}
                         <img 
                             src="{{ info.avatar2 }}" 
                             alt="{{ info.name }}"
-                            class="rounded-full max-w-sm shadow-2xl"
+                            class="rounded-full w-44"
                         >
-                        <p class="py-6 max-w-2xl">{{ info.description }}</p>
+                        <div class="flex flex-col space-y-4">
+                            <h1 class="text-4xl text-zinc-300 tracking-widest yuji">{{ info.name }}</h1>
+                            <span class="text-sm font-light leading-tight tracking-tighter max-w-sm">
+                                Desenvolvendo soluções para os seus problemas com dados através de gráficos 
+                                dinâmicos e criados especialmente para o seu problema.
+                            </span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                <p class="py-6 max-w-2xl">{{ info.description }}</p>
+            </div>
+
+            <div id="about-section" class="hero">
+                <div class="flex flex-col justify-center mt-4 bg-[#DAC5A7]/5 w-[550px] rounded-sm">
+                    {% for info in infos %}
+                        <div class="flex flex-col text-[#DAC5A7] text-start space-y-2 ml-4">
+                            <h5 class="text-sm yuji text-start mt-2">{{ info.name }}</h5>
+                            <span class="text-2xl tracking-widest leading-tight">I gather the duty of my inner self</span>
+                            <p class="text-light tracking-wide leading-relaxed pb-2">{{ info.description }}</p>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
-    
-            {% include 'about/stacksCard.html' %}
+            {% include 'about/socialsCard.html' %}
         </div>
-
     </section>
 {% endblock %}
