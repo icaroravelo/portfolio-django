@@ -15,6 +15,7 @@ from .views import (
     individualCategoryPageView,
     useTermsPageView,
     privacyPolicyPageView,
+    cookiesPolicyPageView,
 )
 
 urlpatterns = [
@@ -32,6 +33,7 @@ urlpatterns = [
 
     path('termos-de-uso/', useTermsPageView, name='termos-de-uso'),
     path('politica-de-privacidade/', privacyPolicyPageView, name='politica-de-privacidade'),
+    path('políticas-de-cookies/', cookiesPolicyPageView, name='politicas-de-cookies'),
 
     path('pagina-de-erro/', errorPageView, name='errorPage'),
 

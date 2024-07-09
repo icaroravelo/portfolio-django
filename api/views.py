@@ -55,3 +55,6 @@ def useTermsPageView(request):
 
 def privacyPolicyPageView(request):
     return render(request, 'legal/privacy-policy.html')
+
+def cookiesPolicyPageView(request):
+    return render(request, 'legal/cookies-policy.html')
