@@ -23,6 +23,7 @@ urlpatterns = [
     path('portfolio/', categoriesPageView, name='portfolio'), # Route for the entire portfolio
     path('categoria/<str:slug>/', individualCategoryPageView, name='categoria'), # Route for each category
     path('educacao/', schoolPageView, name='educacao'), 
+    path('certificados/', schoolPageView, name='certificados'),
     path('contato/', contactPageView, name='contato'),
     path('blog/', blogHomePageView, name='blog'), # Route for the entire blog
     path('post/<int:pk>/', blogHomePageView, name='post'), # Route for the post itself

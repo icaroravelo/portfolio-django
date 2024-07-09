@@ -5,7 +5,7 @@ import cloudinary.uploader
 
 from about.views import aboutPage
 from portfolio.views import categoriesPage, individualCategoryPage
-from school.views import schoolPage
+from school.views import schoolPage, certificatePage
 from contact.views import contactPage
 from blog.views import blogHomePage 
 
@@ -40,6 +40,9 @@ def individualCategoryPageView(request, slug):
 
 def schoolPageView(request):
     return schoolPage(request)
+
+def certificatePageView(request):
+    return certificatePage(request)
 
 def contactPageView(request):
     return contactPage(request)

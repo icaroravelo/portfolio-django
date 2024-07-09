@@ -1,6 +1,6 @@
 {% for category in categories %}
-    <div class="card w-96 bg-base-100 shadow-xl">
-        <div class="p-4">
+    <div class="w-96 rounded-xl bg-[#DAC5A7]/5 shadow-xl">
+        <div class="p-4 flex flex-col items-center mx-auto">
             <h2 
                 class="card-title flex items-center text-center uppercase h-12 tracking-widest 
                     justify-center text-xl text-zinc-300 mt-4 mb-6"
@@ -11,7 +11,7 @@
                 <img 
                     src="{{ category.thumbnail }}" 
                     alt="{{ category.name }}" 
-                    class="rounded-xl"
+                    class="rounded-xl mx-auto"
                     style="width: 350px; height:350px;" 
                 />
             </figure>

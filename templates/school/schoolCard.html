@@ -1,23 +1,24 @@
 {% for school in schools %}
-    <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="w-96 bg-[#DAC5A7]/5 shadow-xl rounded-xl">
         <div class="p-4">
-            <h2 
-                class="card-title flex items-center text-center uppercase h-12 tracking-widest 
-                    justify-center text-xl text-zinc-300 mt-4 mb-6"
-                >
+            <h2
+                class="flex items-center text-center uppercase h-12 tracking-widest
+                justify-center text-xl text-zinc-300 mt-4 mb-6"
+            >
                 {{ school.school_name }}
-            </h2>  
-            <figure class="mt-2">
-                <img 
-                    src="{{ school.logo }}" 
-                    alt="{{ school.name }}" 
-                    class="rounded-xl"
-                    style="width: 300px; height: 228px;" 
-                />
-            </figure>
-            <div class="card-body items-center text-center">
-                <p class="text-gray-300 text-base uppercase tracking-wide h-20 leading-relaxed">{{ school.short_description }}</p>
+            </h2>
+            <img 
+                src="{{ school.logo }}" 
+                alt="{{ school.school_name }}"
+                class="mt-2 rounded-xl flex items-center mx-auto justify-center"
+                style="width: 300px; height: 228px;"
+            />
 
+            <div class="card-body flex-col items-center text-center mt-4">
+                <p class="text-gray-300 text-base uppercase tracking-wide h-20 leading-relaxed">
+                    {{ school.short_description }}
+                </p>
+                
                 <div class="flex flex-row space-x-4 text-md font-normal text-gray-400">
                     <div>
                         <span>Início: </span>
@@ -29,14 +30,51 @@
                     </div>
                 </div>
 
+                <!-- TODO = Check certificate button -->
                 {% if school.certificate %}
-                    <a href="{{ school.certificate.url }}" target="_blank">
-                        <button class="btn bg-cyan-700 uppercase tracking-wider text-gray-300 hover:bg-green-700 transition duration-300 mt-4">Certificado</button>
-                    </a>
+                    <button 
+                        class="btn bg-cyan-700 uppercase tracking-wider text-gray-300 
+                        hover:bg-green-700 transition duration-300 mt-4"
+                        onclick="showCertificateModal('{{ school.school_name }}', '{{ school.certificate }}')"
+                    >
+                        Ver certificado
+                    </button>
                 {% endif %}
             </div>
-            
         </div>
-        
     </div>
 {% endfor %}
+
+<!-- Modal Structure -->
+<div id="certificateModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">
+    <div class="bg-[#DAC5A7]/5 rounded-lg overflow-hidden w-4/5 max-w-lg mx-auto">
+        <div class="p-4">
+            <button id="closeModal" class="float-right text-gray-700 hover:text-gray-500">&times;</button>
+            <h2 id="modalSchoolName" class="text-center text-2xl font-semibold text-zinc-300 mb-4"></h2>
+            <img id="modalCertificateImage" src="" alt="Certificado" class="w-full h-auto mx-auto rounded-lg"/>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showCertificateModal(schoolName, certificateUrl) {
+        // Set the school name and certificate image in the modal
+        document.getElementById('modalSchoolName').innerText = schoolName;
+        document.getElementById('modalCertificateImage').src = certificateUrl;
+
+        // Show the modal
+        document.getElementById('certificateModal').classList.remove('hidden');
+    }
+
+    // Close modal function
+    document.getElementById('closeModal').onclick = function() {
+        document.getElementById('certificateModal').classList.add('hidden');
+    }
+
+    // Close the modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('certificateModal')) {
+            document.getElementById('certificateModal').classList.add('hidden');
+        }
+    }
+</script>
