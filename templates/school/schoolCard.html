@@ -46,35 +46,6 @@
 {% endfor %}
 
 <!-- Modal Structure -->
-<div id="certificateModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden">
-    <div class="bg-[#DAC5A7]/5 rounded-lg overflow-hidden w-4/5 max-w-lg mx-auto">
-        <div class="p-4">
-            <button id="closeModal" class="float-right text-gray-700 hover:text-gray-500">&times;</button>
-            <h2 id="modalSchoolName" class="text-center text-2xl font-semibold text-zinc-300 mb-4"></h2>
-            <img id="modalCertificateImage" src="" alt="Certificado" class="w-full h-auto mx-auto rounded-lg"/>
-        </div>
-    </div>
-</div>
+{% include 'components/modal.html' %}
 
-<script>
-    function showCertificateModal(schoolName, certificateUrl) {
-        // Set the school name and certificate image in the modal
-        document.getElementById('modalSchoolName').innerText = schoolName;
-        document.getElementById('modalCertificateImage').src = certificateUrl;
-
-        // Show the modal
-        document.getElementById('certificateModal').classList.remove('hidden');
-    }
-
-    // Close modal function
-    document.getElementById('closeModal').onclick = function() {
-        document.getElementById('certificateModal').classList.add('hidden');
-    }
-
-    // Close the modal when clicking outside of it
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('certificateModal')) {
-            document.getElementById('certificateModal').classList.add('hidden');
-        }
-    }
-</script>
+{% include 'scripts/modalScript.html' %}
