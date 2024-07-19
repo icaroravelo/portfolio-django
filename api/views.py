@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.template import RequestContext
 
 import cloudinary.uploader
 
@@ -26,8 +27,12 @@ def homePageView(request):
     }
     return render(request, 'home/home.html', context)
 
-def errorPageView(request):
-    return redirect(request, 'error/error.html')
+def error404PageView(request, exception):
+    data = {'name': 'portfolio-django-tan.vercel.app'}
+    return render(request, 'error/error404.html', data)
+
+def error500PageView(request, exception):
+    return render(request, 'error/error500.html')
 
 def aboutPageView(request):
     return aboutPage(request)

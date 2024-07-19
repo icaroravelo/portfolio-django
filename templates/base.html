@@ -6,7 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ícaro Santos | Portfólio</title>
+    {% block title %}
+        <title>Ícaro Santos | Portfólio</title>
+    {% endblock title %}
     {% include "scripts/daisyui.html" %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,8 +45,16 @@
 
 </head>
 <body class="bg-[#0E0E0E] min-h-screen">
-    {% include "nav/navbar.html"  %}
+    <div class="hidden md:flex">
+        {% include "nav/navbar.html"  %}
+    </div>
+
+    <div class="fixed top-0 right-0 md:hidden">
+        {% include "nav/responsive-menu.html" %}
+    </div>
+
     {% block content %}{% endblock content %}
+    
     {% include "footer/footer.html" %}
     {% include "scripts/js.html" %}
     {% include "scripts/daisyscript.html" %}

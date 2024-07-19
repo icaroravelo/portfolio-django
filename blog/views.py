@@ -25,3 +25,12 @@ def blogPost(request, slug, pk):
         "post": post
     }
     return render(request, "blog/post.html", context)
+
+def latestThreePosts(request, created_at):
+    latests = Post.objects.filter(
+        order_by = created_at
+    )
+    context = {
+        "latests" : latests
+    }
+    return render(request, context)
