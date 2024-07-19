@@ -32,6 +32,7 @@ def error404PageView(request, exception):
     return render(request, 'error/error404.html', data)
 
 def error500PageView(request, exception):
+    data = {'name': 'portfolio-django-tan.vercel.app'}
     return render(request, 'error/error500.html')
 
 def aboutPageView(request):
