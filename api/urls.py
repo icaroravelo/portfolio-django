@@ -26,6 +26,7 @@ urlpatterns = [
     path('sobre/', aboutPageView, name='sobre'),
     path('portfolio/', categoriesPageView, name='portfolio'), # Route for the entire portfolio
     path('categoria/<str:slug>/', individualCategoryPageView, name='categoria'), # Route for each category
+    path('categoria/<str:slug>/projeto/<int:pk>/', individualCategoryPageView, name='projeto'), # Route for each project
     path('educacao/', schoolPageView, name='educacao'), # Route for education page
     path('certificados/', schoolPageView, name='certificados'), # Route for certificates (opening modal, so check it this route is really needed)
     path('contato/', contactPageView, name='contato'), # Route for contact page

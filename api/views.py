@@ -47,6 +47,7 @@ def individualCategoryPageView(request, slug):
 def schoolPageView(request):
     return schoolPage(request)
 
+# Check if is necessary to keep this function, because it's not being used (Displaying certificates in modal)
 def certificatePageView(request):
     return certificatePage(request)
 

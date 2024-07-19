@@ -31,6 +31,7 @@ class Project(models.Model):
     thumbnail = models.URLField(max_length=500, blank=True)
     stacks = models.ManyToManyField(Stack, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
+    github_link = models.URLField(max_length=500, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     published_at = models.DateField(blank=True, null=True)
     is_featured = models.BooleanField(default=False)
