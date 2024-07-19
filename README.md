@@ -17,5 +17,5 @@ Este é o repositório do meu portfólio pessoal desenvolvido com Django e estil
 - DaisyUI (Componentes)
 - Django Browser Reload
 - Neon (Banco de Dados) 
-- Vercel (Frontend)
+- Vercel (Host Frontend)
 - Rav (Comandos de execução)
