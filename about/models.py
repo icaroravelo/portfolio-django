@@ -37,9 +37,16 @@ class Experience(models.Model):
     description = models.TextField('description', blank=True, null=True)
     city = models.CharField(max_length=250, blank=True, null=True)
     country = models.CharField(max_length=250, blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    is_currently = models.BooleanField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
     logo = models.URLField(max_length=500, blank=True)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
+
+    def is_currently_working(self, end_date):
+        if self.is_currently:
+            return self.started_at.strftime('%d/%m/%Y') if self.started_date else end_date
 
     def __str__(self):
         return self.name

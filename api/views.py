@@ -25,7 +25,7 @@ def homePageView(request):
         'stacks': stacks,
         'experiences': experiences
     }
-    return render(request, 'home/home.html', context)
+    return render(request, 'home/main.html', context)
 
 def error404PageView(request, exception):
     data = {'name': 'portfolio-django-tan.vercel.app'}

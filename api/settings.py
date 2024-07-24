@@ -34,7 +34,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'railway.app', 'localhost', '*']
 
@@ -57,7 +57,14 @@ INSTALLED_APPS = [
 
     # Third Party Apps
     'django_browser_reload',
+    'compressor',
 ]
+
+COMPRESS_ROOT = BASE_DIR / 'static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -6,10 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title %}
-        <title>Ícaro Santos | Portfólio</title>
-    {% endblock title %}
-    {% include "scripts/daisyui.html" %}
+    <title>{% block head_title %}Ícaro Alves | Portfólio{% endblock head_title %}</title>
+
+    {% include "utils/css.html" %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,20 +43,17 @@
     </style>
 
 </head>
-<body class="bg-[#0E0E0E] min-h-screen">
-    <div class="hidden md:flex">
-        {% include "nav/navbar.html"  %}
-    </div>
-
-    <div class="fixed top-0 right-0 md:hidden">
-        {% include "nav/responsive-menu.html" %}
-    </div>
-
-    {% block content %}{% endblock content %}
+<body class="bg-gray-900 min-h-screen">
+    {% include "nav/navbar.html"  %}
     
+    {% block content %}
+    
+    {% endblock content %}
     {% include "footer/footer.html" %}
-    {% include "scripts/js.html" %}
-    {% include "scripts/daisyscript.html" %}
+    
+    {% include 'utils/js.html' %}
+    {% include 'utils/modes.html' %}
+    
     {% django_browser_reload_script %}
 </body>
 </html>
