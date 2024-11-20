@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 from os import getenv
+from urllib.parse import urlparse
 from dotenv import load_dotenv
 from decouple import config
 
@@ -104,17 +105,30 @@ WSGI_APPLICATION = 'api.wsgi.app'
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
+# DATABASES = {
+#     'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': getenv('PGDATABASE'),
+#     'USER': getenv('PGUSER'),
+#     'PASSWORD': getenv('PGPASSWORD'),
+#     'HOST': getenv('PGHOST'),
+#     'PORT': getenv('PGPORT', 5432),
+#     'OPTIONS': {
+#         'sslmode': 'require',
+#         },
+#     }
+# }
+
+tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': getenv('PGDATABASE'),
-    'USER': getenv('PGUSER'),
-    'PASSWORD': getenv('PGPASSWORD'),
-    'HOST': getenv('PGHOST'),
-    'PORT': getenv('PGPORT', 5432),
-    'OPTIONS': {
-        'sslmode': 'require',
-        },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': tmpPostgres.path.replace('/', ''),
+        'USER': tmpPostgres.username,
+        'PASSWORD': tmpPostgres.password,
+        'HOST': tmpPostgres.hostname,
+        'PORT': 5432,
     }
 }
 
