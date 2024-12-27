@@ -37,7 +37,7 @@ SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'railway.app', 'localhost', '*']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'railway.app', 'localhost', '*', 'icaroravelo.pythonanywhere.com']
 
 # Application definition
 
@@ -124,7 +124,7 @@ tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.lstrip('/'),
+        'NAME': str(tmpPostgres.path).lstrip('/'),
         'USER': tmpPostgres.username,
         'PASSWORD': tmpPostgres.password,
         'HOST': tmpPostgres.hostname,
