@@ -119,16 +119,28 @@ WSGI_APPLICATION = 'api.wsgi.app'
 #     }
 # }
 
-tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
+# tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': str(tmpPostgres.path).lstrip('/'),
+#         'USER': tmpPostgres.username,
+#         'PASSWORD': tmpPostgres.password,
+#         'HOST': tmpPostgres.hostname,
+#         'PORT': tmpPostgres.port or 5432,
+#     }
+# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': str(tmpPostgres.path).lstrip('/'),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': tmpPostgres.port or 5432,
+        'NAME': 'neondb',  # Nome do banco de dados
+        'USER': 'neondb_owner',  # Usuário
+        'PASSWORD': 'fJrCdzkS8R6N',  # Senha
+        'HOST': 'ep-autumn-shape-a24wif6z.eu-central-1.aws.neon.tech',  # Host
+        'PORT': 5432,  # Porta (padrão do PostgreSQL)
     }
 }
 
