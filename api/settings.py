@@ -105,22 +105,20 @@ WSGI_APPLICATION = 'api.wsgi.app'
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
-# DATABASES = {
-#     'default': {
-#     'ENGINE': 'django.db.backends.postgresql',
-#     'NAME': getenv('PGDATABASE'),
-#     'USER': getenv('PGUSER'),
-#     'PASSWORD': getenv('PGPASSWORD'),
-#     'HOST': getenv('PGHOST'),
-#     'PORT': getenv('PGPORT', 5432),
-#     'OPTIONS': {
-#         'sslmode': 'require',
-#         },
-#     }
-# }
+DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': os.getenv('PGDATABASE'),
+    'USER': os.getenv('PGUSER'),
+    'PASSWORD': os.getenv('PGPASSWORD'),
+    'HOST': os.getenv('PGHOST'),
+    'PORT': os.getenv('PGPORT', 5432),
+    'OPTIONS': {
+        'sslmode': 'require',
+        },
+    }
+}
 
-
-# tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
 # DATABASES = {
 #     'default': {
@@ -132,17 +130,6 @@ WSGI_APPLICATION = 'api.wsgi.app'
 #         'PORT': tmpPostgres.port or 5432,
 #     }
 # }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',  # Nome do banco de dados
-        'USER': 'neondb_owner',  # Usuário
-        'PASSWORD': 'fJrCdzkS8R6N',  # Senha
-        'HOST': 'ep-autumn-shape-a24wif6z.eu-central-1.aws.neon.tech',  # Host
-        'PORT': 5432,  # Porta (padrão do PostgreSQL)
-    }
-}
 
 # Cloudinary Configuration
 

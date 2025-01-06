@@ -16,12 +16,18 @@
                             stroke-width="2" d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"></path>
                     </svg>
                 </a>
+                <div class="grid grid-cols-3 space-x-2 mt-10">
+                    {% for stack in stacks  %}
+                    <div class="flex w-32 gap-2 items-center justify-center bg-blue-700 rounded-full p-2">
+                        <img src="{{ stack.logo }}" alt="{{ stack.name }}" class="h-4" />
+                        <p>{{ stack.name }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
 
-            
-
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="{{ info.avatar1 }}" alt="image" class="w-full rounded-lg">
+                <img src="{{ info.avatar1 }}" alt="{{ alt.name }}" class="w-full rounded-lg">
             </div>
         </div>
     {% endfor %}
