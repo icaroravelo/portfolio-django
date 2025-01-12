@@ -1,28 +1,46 @@
 <footer class="rounded-lg shadow border-t border-[#43454D]">
-    <div class="w-full mx-auto max-w-screen-xl my-3.5 p-4 md:flex md:items-center md:justify-between">
+    <div 
+        class="w-full flex flex-col items-center justify-center md:mx-auto md:max-w-screen-xl md:my-3.5 p-4 md:flex 
+            md:flex-row md:items-center md:justify-between space-y-6 md:space-y-0"
+    >
         <span class="text-sm text-gray-300 sm:text-center">© 2024 
             <a href="{% url 'home' %}" class="hover:underline">Ícaro Alves™</a>. Todos os direitos reservados.
         </span>
         <div>
             <ul class="flex flex-wrap items-center text-sm font-medium text-gray-300">
                 <li>
-                    <a href="/" class="hover:underline me-4 md:me-6">Política de Privacidade</a>
+                    <a href="{% url 'politica-de-privacidade' %}" class="hover:underline me-4 md:me-6">Política de Privacidade</a>
                 </li>
                 <li>
-                    <a href="/" class="hover:underline me-4 md:me-6">Termos e Condições</a>
+                    <a href="{% url 'termos-de-uso' %}" class="hover:underline me-4 md:me-6">Termos e Condições</a>
                 </li>
             </ul>
         </div>
         <div>
             <ul class="flex flex-wrap items-center text-sm font-medium text-gray-300">
                 <li>
-                    <a href="/" class="hover:underline me-4 md:me-6">Instagram</a>
+                    <a href="https://www.instagram.com/_raveloo/" 
+                        class="hover:underline me-4 md:me-6"
+                        target="blank"
+                    >
+                        Instagram
+                    </a>
                 </li>
                 <li>
-                    <a href="/" class="hover:underline me-4 md:me-6">Github</a>
+                    <a href="https://github.com/icaroravelo" 
+                        class="hover:underline me-4 md:me-6"
+                        target="blank"
+                    >
+                        Github
+                    </a>
                 </li>
                 <li>
-                    <a href="/" class="hover:underline me-4 md:me-6">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/icaro-alves-46429b164/" 
+                        class="hover:underline me-4 md:me-6"
+                        target="blank"
+                    >
+                        LinkedIn
+                    </a>
                 </li>
                 <li>
                     <a href="{% url 'contatos' %}" class="hover:underline">Contatos</a>
