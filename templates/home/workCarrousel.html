@@ -1,0 +1,53 @@
+{% block content %}
+  <div id="default-carousel" class="relative w-full max-w-4xl mx-auto" data-carousel="slide">
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+    {% for experience in experiences %}
+    <!-- Carousel wrapper -->
+        <div class="hidden duration-700 ease-in-out flex flex-row" data-carousel-item>
+          <div class="flex flex-col items-center text-center space-y-2 bg-gray-700 p-6 rounded-lg max-w-96 mx-auto mb-10">
+            <div class="flex items-center justify-center text-center">
+                <img 
+                    src="{{ experience.logo }}" 
+                    alt="{{ experience.name }}"
+                    class="w-24 rounded-full"
+                >
+            </div>
+
+            <div class="space-y-2 text-gray-200">
+                <h3 class="text-xl tracking-widest">{{ experience.name }}</h3>
+                <p class="text-xs tracking-wider">{{ experience.city }}, {{ experience.country }}</p>
+                <h4 class="text-base tracking-widest yuji pb-2">{{ experience.role }}</h4>
+                <div class="flex text-sm tracking-wider">
+                    <p class="text-sm tracking-wider mx-auto">{{ experience.start_date }} - {{ experience.end_date }}</p>
+                </div>
+            </div>
+
+            <div>
+                <p class="text-sm max-w-sm text-gray-200 tracking-wider leading-relaxed">
+                    {{ experience.description }}
+                </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-prev>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:bg-white/50">
+        <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-next>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:bg-white/50">
+        <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 9l4-4-4-4"/>
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
+{% endblock content %}

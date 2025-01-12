@@ -1,24 +1,24 @@
 {% load static %}
-<section id="home" class="bg-white dark:bg-gray-900 pt-20">
+<section id="home" class="pt-20">
     {% for info in infos %}
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white yuji">
-                    Olá, {{ info.name }} aqui
+                    Olá, <span class="brand-primary yuji">{{ info.name }}</span> aqui
                 </h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">{{ info.bio }}</p>
+                <p class="max-w-2xl mb-6 font-light text-gray-200 lg:mb-8 md:text-lg lg:text-xl">{{ info.bio }}</p>
 
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white 
-                    rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-gray-900 
+                    rounded-lg bg-[#12F7D6] hover:bg-[#98FAEC] focus:ring-4 focus:ring-blue-300">
                         Download CV
-                    <svg class="w-4 h-4 ml-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                    <svg class="w-4 h-4 ml-2 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" 
                             stroke-width="2" d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"></path>
                     </svg>
                 </a>
-                <div class="grid grid-cols-3 space-x-2 mt-10">
+                <div class="grid grid-cols-3 gap-2 mt-10">
                     {% for stack in stacks  %}
-                    <div class="flex w-32 gap-2 items-center justify-center bg-blue-700 rounded-full p-2">
+                    <div class="flex gap-4 items-center justify-center bg-gray-700 text-gray-300 text-xs font-medium me-2 px-2.5 py-2 rounded">
                         <img src="{{ stack.logo }}" alt="{{ stack.name }}" class="h-4" />
                         <p>{{ stack.name }}</p>
                     </div>

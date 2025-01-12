@@ -25,6 +25,14 @@
             font-family: 'Roboto', serif;
         }
 
+        .brand-primary {
+            color: #12F7D6;
+        }
+
+        .brand-secondary {
+            color: #98FAEC;
+        }
+
         .sans {
             font-family: 'Open Sans', sans-serif;
         }
@@ -45,16 +53,20 @@
     </style>
 
 </head>
-<body class="bg-gray-900 min-h-screen">
+<body class="bg-[#292F36] min-h-screen">
+    {% comment %} NAVBAR {% endcomment %}
     {% include "nav/navbar.html"  %}
     
+    {% comment %} PAGE CONTENTS {% endcomment %}
     {% block content %}
     
     {% endblock content %}
+
+    {% comment %} FOOTER {% endcomment %}
     {% include "footer/footer.html" %}
     
+    {% comment %} SCRIPTS {% endcomment %}
     {% include 'utils/js.html' %}
-    {% include 'utils/modes.html' %}
     
     {% django_browser_reload_script %}
 </body>
